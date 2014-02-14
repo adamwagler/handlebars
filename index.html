@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="handlebars-v1.3.0.js"></script>
+
+<script>            
+   
+    $(function() {
+       
+        var theData = { 
+                        headerTitle:"Shop Page", 
+                        weekDay:"Wednesday",
+                        content: "<p>This is only a text</p>"
+                      };
+       
+       // Retrieve the HTML from the script tag we setup in step 1
+       // We use the id (header) of the script tag to target it on the page
+       var theTemplateScript = $("#header").html();
+    
+       // The Handlebars.compile function returns a function to theTemplate variable
+       var theTemplate = Handlebars.compile(theTemplateScript);
+       
+            $(document.body).append(theTemplate(theData));
+       
+        }); 
+    
+    
+     $(function() {
+       
+        var headingtemplate = { 
+                        adamtest: "<p>This is going to be a header</p>"
+                      };
+       
+       // Retrieve the HTML from the script tag we setup in step 1
+       // We use the id (header) of the script tag to target it on the page
+       var adamTemplateScript = $("#heading").html();
+    
+       // The Handlebars.compile function returns a function to theTemplate variable
+       var adamTemplate = Handlebars.compile(adamTemplateScript);
+       
+            $(document.body).append(adamTemplate(headingtemplate));
+       
+        });  
+ 
+</script>
+    
+    <style type="text/css">
+        * { font-family: "Helvetica Neue", Helvetica,Arial, sans-serif; }      
+    </style>
+</head>
+
+<body>
+   
+    <script id="header" type="text/x-handlebars-template">
+    <div> {{ headerTitle }} </div>
+        Today is {{weekDay}}
+        {{{content}}}
+    </script>
+    
+    
+    <div class="template">
+    <script id="heading" type="text/x-handlebars-template">
+    <div> {{{adamtest}}} </div>
+    </script>
+    </div>
+    
+    
+</body>
+</html>
